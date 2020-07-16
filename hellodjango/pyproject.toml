@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "hellodjango"
+version = "0.1.0"
+description = ""
+authors = ["Ider Delzo <soloidx@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+django = "^3.0.8"
+flake8 = "^3.8.3"
+pylint = "^2.5.3"
+
+[tool.poetry.dev-dependencies]
+black = {version = "^19.10b0", allow-prereleases = true}
+mypy = "0.770"
+django-stubs = "^1.5.0"
+
+[tool.pylint.format]
+max-line-length = "80"
+
+[tool.pylint.message_control]
+disable = """
+bad-continuation,
+missing-function-docstring,
+missing-module-docstring,
+missing-class-docstring,
+"""
+
+[tool.pylint.TYPECHECK]
+ignored-classes = ""
+ignored-modules= ""
+
+[tool.mypy]
+plugins = "mypy_django_plugin.main"
+strict_optional = "False"
+    [tool.mypy-django-stubs]
+    django_settings_module = "hellodjango.settings"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
